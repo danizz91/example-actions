@@ -1,9 +1,6 @@
 language: node_js
 node_js:
   - 7
-cache:
-  paths:
-  - variables
   before_script:
     - npm install @neuralegion/nexploit-cli -g || true
   script:
@@ -13,7 +10,7 @@ cache:
     --name "Test Gitlab Scan"
     --crawler https://juice-shop.herokuapp.com/
     --smart)
-  - echo "export SCAN_ID=$SCAN_ID" > $CI_PROJECT_DIR/variables
+  - echo $SCAN_ID
   - printf "Scan was started with ID https://nexploit.app/scans/$SCAN_ID\n"
   - printf "Wait for issues ⏳\n"
   - >
@@ -22,9 +19,6 @@ cache:
     --timeout 20m
     --token $NEXPLOIT_TOKEN
     --breakpoint medium_issue $SCAN_ID)
-  artifacts:
-    paths:
-    - variables
   allow_failure: true
   after_script:
   - source $CI_PROJECT_DIR/variables
