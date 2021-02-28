@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - 7
-  before_script:
+before_script:
     - npm install @neuralegion/nexploit-cli -g || true
-  script:
+script:
   - echo "Start Nexploit Scan 🏁"
   - >
     SCAN_ID=$(nexploit-cli scan:run --token $NEXPLOIT_TOKEN
