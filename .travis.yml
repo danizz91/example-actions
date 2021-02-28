@@ -21,11 +21,5 @@ script:
     --breakpoint medium_issue $SCAN_ID)
   allow_failure: true
   after_script:
-  - source $CI_PROJECT_DIR/variables
-  - >
-    if [ -e $CI_PROJECT_DIR/variables ]; then
-      echo "Stop Scan 🛑"
-      nexploit-cli scan:stop --token $NEXPLOIT_TOKEN $SCAN_ID
-    else
-      echo "Failed too stop scan"
-    fi
+      - echo "Stop Scan 🛑"
+      - nexploit-cli scan:stop --token $NEXPLOIT_TOKEN $SCAN_ID
