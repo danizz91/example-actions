@@ -27,5 +27,5 @@ node_js:
       echo "Stop Scan 🛑"
       nexploit-cli scan:stop --token $NEXPLOIT_TOKEN $SCAN_ID
     else
-      echo "Failed to stop scan"
+      echo "Failed too stop scan"
     fi
