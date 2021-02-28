@@ -2,8 +2,6 @@ language: node_js
 node_js:
   - 7
 before_script:
-  - apt update -qq --fix-missing
-  - apt install -y --no-install-recommends nodejs npm
   - npm install @neuralegion/nexploit-cli -g || true
 script:
   - echo "Start Nexploit Scan 🏁"
